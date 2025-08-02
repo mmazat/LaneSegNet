@@ -1,0 +1,46 @@
+{
+    "name": "LaneSegNetDev",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.pylance",
+                "ms-python.black-formatter",
+                "ms-toolsai.jupyter",
+                "GitHub.copilot"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/bin/python3",
+                "python.formatting.provider": "black",
+                "files.autoSave": "afterDelay",
+                "editor.formatOnSave": true
+            }
+        }
+    },
+    "forwardPorts": [
+        8888,
+        6006
+    ],
+    "portsAttributes": {
+        "8888": {
+            "label": "Jupyter",
+            "onAutoForward": "notify"
+        },
+        "6006": {
+            "label": "TensorBoard",
+            "onAutoForward": "notify"
+        }
+    },
+    "remoteUser": "root",
+    "runArgs": [
+        "--shm-size=8g",
+        "--mount",
+        "type=bind,source=/mnt/nvme0,target=/mnt/nvme0"
+    ],
+}
