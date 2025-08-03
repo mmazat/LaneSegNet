@@ -41,6 +41,8 @@
     "runArgs": [
         "--shm-size=8g",
         "--mount",
-        "type=bind,source=/mnt/nvme0,target=/mnt/nvme0"
+        "type=bind,source=/mnt/nvme0,target=/mnt/nvme0",
+        "--mount",
+        "type=bind,source=/mnt/hdd,target=/mnt/hdd"
     ],
 }

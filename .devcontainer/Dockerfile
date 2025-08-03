@@ -32,6 +32,6 @@ WORKDIR /workspace
 # Set environment variables
 ENV PYTHONPATH=/workspace:$PYTHONPATH
 ENV PATH=/workspace/bin:$PATH
-
+RUN ln -s /usr/bin/python3 /usr/bin/python
 # Set the default command
 CMD ["/bin/bash"]
